@@ -1,0 +1,5 @@
+<dataset>
+	<data id="Y01" name="今週"　year="1" month="1" date="1" />
+	<data id="Y02" name="来週"　year="2" month="2" date="2" />
+	<data id="Y03" name="週末"　year="3" month="3" date="3" />
+</dataset>
