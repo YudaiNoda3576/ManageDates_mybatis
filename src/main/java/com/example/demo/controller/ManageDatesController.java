@@ -1,4 +1,4 @@
-package com.example.demo.app;
+package com.example.demo.controller;
 
 import java.time.LocalDate;
 
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.domain.ManageDates;
-import com.example.demo.domain.SearchForm;
+import com.example.demo.form.SearchForm;
 import com.example.demo.service.ManageDatesService;
 
 @Controller

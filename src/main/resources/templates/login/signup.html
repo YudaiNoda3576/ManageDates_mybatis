@@ -16,17 +16,20 @@
 			<h1>ユーザー登録画面</h1>
 		</div>
 		<!-- th:object  Modelに登録されているオブジェクトの受け取り。　th:object="${<ModdelAttributeのキー名>}"-->
-		<form method="post" th:action="@{/signup}">
-			<div class="form-group row">
+		<form method="post" th:action="@{/signup}" th:object="${signupForm}">
+		<!--th:classappend エラー用CSSの追加  -->
+			<div class="form-group row" th:classappend="${#fields.hasErrors('userId')}?'has-error'">
 				<label for="inputEmail" class="col-sm-2 col-form-label">ユーザー名</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" placeholder="ユーザー名">
+					<input type="text" class="form-control" placeholder="ユーザー名" th:field="*{userName}">
+					<span class="text-danger" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">userName error</span>
 				</div>
 			</div>
 			<div class="form-group row">
 				<label for="inputPassword" class="col-sm-2 col-form-label">ユーザーID</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" placeholder="ユーザーID">
+					<input type="text" class="form-control" placeholder="ユーザーID" th:field="*{userId}">
+					<span class="text-danger" th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}">userId error</span>
 				</div>
 			</div>
 
@@ -34,14 +37,16 @@
 				<label for="inputEmail" class="col-sm-2 col-form-label">Eメール</label>
 				<div class="col-sm-10">
 					<input type="email" class="form-control" id="inputEmail"
-						placeholder="Eメール">
+						placeholder="Eメール" th:field="*{email}">
+					<span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error</span>
 				</div>
 			</div>
 			<div class="form-group row">
 				<label for="inputPassword" class="col-sm-2 col-form-label">パスワード</label>
 				<div class="col-sm-10">
 					<input type="password" class="form-control" id="inputPassword"
-						placeholder="パスワード">
+						placeholder="パスワード" th:field="*{password}">
+					<span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error</span>
 				</div>
 			</div>
 			<!-- ユーザー登録ボタン -->
